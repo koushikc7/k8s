@@ -1,4 +1,4 @@
-
+```sh {"id":"01HS957Z2K6VJ4CSHF72Q00RQR"}
 🔥 Basic Kubectl commands which are essential for a DevOps engineer to manage a Kubernetes cluster.
 
 ☸️ Pods:
@@ -47,5 +47,4 @@
 🔎 Get PVs/PVCs: kubectl get pv / kubectl get pvc
 📌 Describe PV/PVC: kubectl describe pv <pv_name> / kubectl describe pvc <pvc_name>
 ❌ Delete PV/PVC: kubectl delete pv <pv_name> / kubectl delete pvc <pvc_name>
-
 ```
