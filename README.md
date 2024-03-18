@@ -1,6 +1,6 @@
 🔥 Basic Kubectl commands which are essential for a DevOps engineer to manage a Kubernetes cluster.
 
-💠 Pods:
+☸️ Pods:
 🔗 Create a Pod: kubectl create -f pod.yaml
 📌 Get Pods: kubectl get pods
 🗞️ Describe Pod: kubectl describe pod <pod_name>
@@ -8,7 +8,7 @@
 🛠 Exec into Pod: kubectl exec -it <pod_name> -- <command>
 ❌ Delete Pod: kubectl delete pod <pod_name>
 
-💠 Deployments:
+☸️ Deployments:
 🔑 Create a Deployment: kubectl create -f deployment.yaml
 🛠 Get Deployments: kubectl get deployments
 📌 Describe Deployment: kubectl describe deployment <deployment_name>
