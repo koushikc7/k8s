@@ -1,10 +1,4 @@
----
-runme:
-  id: 01HS94W4YMQQQR32A07V2XE318
-  version: v3
----
 
-```sh {"id":"01HS94W7ZNX19QY6DQJ70AY922"}
 🔥 Basic Kubectl commands which are essential for a DevOps engineer to manage a Kubernetes cluster.
 
 ☸️ Pods:
