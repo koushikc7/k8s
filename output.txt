@@ -1,0 +1,590 @@
+## cd /Users/koushikchanda/Documents/AWS/nsible ##
+Last login: Wed Jun 12 14:47:09 on ttys001
+koushikchanda@Koushiks-MBP ~ % cd Desktop 
+koushikchanda@Koushiks-MBP Desktop % ls
+Koushik_Image.jpg			Screenshot 2024-05-13 at 12.39.05.png	Screenshot 2024-05-24 at 12.59.16.png	a.py					hub.py
+Resume					Screenshot 2024-05-13 at 12.57.43.png	Zscaler					ansible					~$koi.docx
+koushikchanda@Koushiks-MBP Desktop % cd ansible 
+koushikchanda@Koushiks-MBP ansible % 
+koushikchanda@Koushiks-MBP ansible % 
+koushikchanda@Koushiks-MBP ansible % ls
+masterInstance.pem	slaveInstance.pem
+koushikchanda@Koushiks-MBP ansible % 
+koushikchanda@Koushiks-MBP ansible % 
+koushikchanda@Koushiks-MBP ansible % 
+koushikchanda@Koushiks-MBP ansible % ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/koushikchanda/.ssh/id_rsa):                                     
+
+koushikchanda@Koushiks-MBP ansible % mv /Users/koushikchanda/.ssh/id_rsa.pub /Users/koushikchanda/Desktop/ansible 
+koushikchanda@Koushiks-MBP ansible % ls      
+id_rsa.pub		masterInstance.pem	slaveInstance.pem
+koushikchanda@Koushiks-MBP ansible % cd /Users/koushikchanda/.ssh/
+koushikchanda@Koushiks-MBP .ssh % ls
+id_rsa		known_hosts	known_hosts.old	sshkey		sshkey.pub
+koushikchanda@Koushiks-MBP .ssh % mv /Users/koushikchanda/.ssh/id_rsa /Users/koushikchanda/Desktop/ansible 
+koushikchanda@Koushiks-MBP .ssh % 
+koushikchanda@Koushiks-MBP .ssh % 
+koushikchanda@Koushiks-MBP .ssh % cd /Users/koushikchanda/Desktop/ansible 
+koushikchanda@Koushiks-MBP ansible % ls
+id_rsa			id_rsa.pub		masterInstance.pem	slaveInstance.pem
+koushikchanda@Koushiks-MBP ansible % pwd
+/Users/koushikchanda/Desktop/ansible
+koushikchanda@Koushiks-MBP ansible % ls
+ansible.cfg	aws-ansible.pem	id_rsa		id_rsa.pub	inventory.ini	output.log	playbook.yml
+koushikchanda@Koushiks-MBP ansible % 
+koushikchanda@Koushiks-MBP ansible % 
+koushikchanda@Koushiks-MBP ansible % ansible -i inventory.ini -m ping all
+ubuntu@ip-172-31-9-74 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host ip-172-31-9-74 port 22: Operation timed out",
+    "unreachable": true
+}
+ubuntu@ip-172-31-4-198 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host ip-172-31-4-198 port 22: Operation timed out",
+    "unreachable": true
+}
+koushikchanda@Koushiks-MBP ansible % 
+koushikchanda@Koushiks-MBP ansible % 
+koushikchanda@Koushiks-MBP ansible % 
+koushikchanda@Koushiks-MBP ansible % ansible -i inventory.ini -m ping all
+ubuntu@ip-172-31-9-74 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host ip-172-31-9-74 port 22: Operation timed out",
+    "unreachable": true
+}
+ubuntu@ip-172-31-4-198 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host ip-172-31-4-198 port 22: Operation timed out",
+    "unreachable": true
+}
+koushikchanda@Koushiks-MBP ansible % 
+koushikchanda@Koushiks-MBP ansible % 
+koushikchanda@Koushiks-MBP ansible % ansible -i inventory.ini -m ping all
+ubuntu@172-31-9-74 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 172-31-9-74 port 22: Operation timed out",
+    "unreachable": true
+}
+ubuntu@172-31-4-198 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 172-31-4-198 port 22: Operation timed out",
+    "unreachable": true
+}
+koushikchanda@Koushiks-MBP ansible % 
+koushikchanda@Koushiks-MBP ansible % 
+koushikchanda@Koushiks-MBP ansible % ansible -i inventory.ini -m ping all
+ubuntu@3.109.59.185 | UNREACHABLE! => {
+    
+koushikchanda@Koushiks-MBP ansible % 
+koushikchanda@Koushiks-MBP ansible % 
+koushikchanda@Koushiks-MBP ansible % cat inventory.ini 
+ubuntu@3.109.59.185
+ubuntu@143.204.230.140
+
+koushikchanda@Koushiks-MBP ansible % 
+koushikchanda@Koushiks-MBP ansible % 
+
+total 72
+drwxr-xr-x  10 koushikchanda  staff   320 Jun 12 16:36 .
+drwx------@ 14 koushikchanda  staff   448 Jun 12 14:28 ..
+-rw-r--r--@  1 koushikchanda  staff  6148 Jun 12 16:36 .DS_Store
+-rw-r--r--   1 koushikchanda  staff    87 Jun 12 16:45 ansible.cfg
+-r--------@  1 koushikchanda  staff  1674 Jun 12 16:33 aws-ansible.pem
+-rw-------   1 koushikchanda  staff  2635 Jun 12 15:06 id_rsa
+-rw-r--r--   1 koushikchanda  staff   593 Jun 12 15:06 id_rsa.pub
+-rw-r--r--   1 koushikchanda  staff    41 Jun 12 16:56 inventory.ini
+-rw-r--r--   1 koushikchanda  staff  2063 Jun 12 16:48 output.log
+-rw-r--r--   1 koushikchanda  staff   278 Jun 12 15:21 playbook.yml
+koushikchanda@Koushiks-MBP ansible % chmod 400 id_rsa
+koushikchanda@Koushiks-MBP ansible % 
+koushikchanda@Koushiks-MBP ansible % 
+koushikchanda@Koushiks-MBP ansible % ansible -i inventory.ini -m ping all
+
+drwxr-xr-x  10 koushikchanda  staff   320 Jun 12 16:36 .
+drwx------@ 14 koushikchanda  staff   448 Jun 12 14:28 ..
+-rw-r--r--@  1 koushikchanda  staff  6148 Jun 12 16:36 .DS_Store
+-rw-r--r--   1 koushikchanda  staff    87 Jun 12 16:45 ansible.cfg
+-r--------@  1 koushikchanda  staff  1674 Jun 12 16:33 aws-ansible.pem
+-r--------   1 koushikchanda  staff  2635 Jun 12 15:06 id_rsa
+-rw-r--r--   1 koushikchanda  staff   593 Jun 12 15:06 id_rsa.pub
+-rw-r--r--   1 koushikchanda  staff    41 Jun 12 16:56 inventory.ini
+-rw-r--r--   1 koushikchanda  staff  2063 Jun 12 16:48 output.log
+-rw-r--r--   1 koushikchanda  staff   278 Jun 12 15:21 playbook.yml
+koushikchanda@Koushiks-MBP ansible % cd ..
+
+koushikchanda@Koushiks-MBP Desktop % 
+koushikchanda@Koushiks-MBP Desktop % 
+koushikchanda@Koushiks-MBP Desktop % 
+koushikchanda@Koushiks-MBP Desktop % ansible -i inventory.ini -m ping all
+ubuntu@43.204.230.140 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ubuntu@43.204.230.140: Permission denied (publickey).",
+    "unreachable": true
+}
+[WARNING]: Platform linux on host ubuntu@3.109.59.185 is using the discovered Python interpreter at /usr/bin/python3.12, but future installation of another Python interpreter could change the meaning of
+that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more information.
+ubuntu@3.109.59.185 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.12"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+koushikchanda@Koushiks-MBP Desktop % 
+koushikchanda@Koushiks-MBP Desktop % 
+koushikchanda@Koushiks-MBP Desktop % ansible -i inventory.ini -m ping all
+ubuntu@43.204.230.140 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ubuntu@43.204.230.140: Permission denied (publickey).",
+    "unreachable": true
+}
+koushikchanda@Koushiks-MBP Desktop % ansible -i inventory.ini -m ping all
+[WARNING]: Platform linux on host ubuntu@3.109.59.185 is using the discovered Python interpreter at /usr/bin/python3.12, but future installation of another Python interpreter could change the meaning of
+that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more information.
+ubuntu@3.109.59.185 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.12"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+koushikchanda@Koushiks-MBP Desktop % ansible -i inventory.ini -m shell -a "sudo ls /etc/" all
+[WARNING]: Platform linux on host ubuntu@3.109.59.185 is using the discovered Python interpreter at /usr/bin/python3.12, but future installation of another Python interpreter could change the meaning of
+that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more information.
+ubuntu@3.109.59.185 | CHANGED | rc=0 >>
+ModemManager
+PackageKit
+X11
+acpi
+adduser.conf
+alternatives
+apparmor
+apparmor.d
+apport
+apt
+bash.bashrc
+bash_completion
+bash_completion.d
+bindresvport.blacklist
+binfmt.d
+byobu
+ca-certificates
+ca-certificates.conf
+chrony
+cloud
+console-setup
+credstore
+credstore.encrypted
+cron.d
+cron.daily
+cron.hourly
+cron.monthly
+cron.weekly
+cron.yearly
+crontab
+cryptsetup-initramfs
+crypttab
+dbus-1
+debconf.conf
+debian_version
+default
+deluser.conf
+depmod.d
+dhcp
+dhcpcd.conf
+dpkg
+e2scrub.conf
+ec2_version
+environment
+ethertypes
+fonts
+fstab
+fuse.conf
+fwupd
+gai.conf
+gnutls
+groff
+group
+group-
+grub.d
+gshadow
+gshadow-
+gss
+hdparm.conf
+hibagent-config.cfg
+hibinit-config.cfg
+host.conf
+hostname
+hosts
+hosts.allow
+hosts.deny
+init.d
+initramfs-tools
+inputrc
+iproute2
+iscsi
+issue
+issue.net
+kernel
+landscape
+ld.so.cache
+ld.so.conf
+ld.so.conf.d
+ldap
+legal
+libaudit.conf
+libblockdev
+libibverbs.d
+libnl-3
+locale.alias
+locale.conf
+locale.gen
+localtime
+logcheck
+login.defs
+logrotate.conf
+logrotate.d
+lsb-release
+lvm
+machine-id
+magic
+magic.mime
+manpath.config
+mdadm
+mime.types
+mke2fs.conf
+modprobe.d
+modules
+modules-load.d
+mtab
+multipath
+multipath.conf
+nanorc
+needrestart
+netconfig
+netplan
+network
+networkd-dispatcher
+networks
+newt
+nftables.conf
+nsswitch.conf
+opt
+os-release
+overlayroot.conf
+overlayroot.local.conf
+pam.conf
+pam.d
+passwd
+passwd-
+perl
+pki
+plymouth
+pm
+polkit-1
+pollinate
+ppp
+profile
+profile.d
+protocols
+python3
+python3.12
+rc0.d
+rc1.d
+rc2.d
+rc3.d
+rc4.d
+rc5.d
+rc6.d
+rcS.d
+resolv.conf
+rmt
+rpc
+rsyslog.conf
+rsyslog.d
+screenrc
+security
+selinux
+sensors.d
+sensors3.conf
+services
+sgml
+shadow
+shadow-
+shells
+skel
+sos
+ssh
+ssl
+subgid
+subgid-
+subuid
+subuid-
+sudo.conf
+sudo_logsrvd.conf
+sudoers
+sudoers.d
+supercat
+sysctl.conf
+sysctl.d
+sysstat
+systemd
+terminfo
+timezone
+tmpfiles.d
+ubuntu-advantage
+ucf.conf
+udev
+udisks2
+ufw
+update-manager
+update-motd.d
+update-notifier
+usb_modeswitch.conf
+usb_modeswitch.d
+vconsole.conf
+vim
+vmware-tools
+vtrgb
+wgetrc
+xattr.conf
+xdg
+xml
+zsh_command_not_found
+koushikchanda@Koushiks-MBP Desktop % cd book2        
+koushikchanda@Koushiks-MBP book2 % ls
+inventory.ini	pbook2.yml
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % ansible-playbook sample.yml --syntax-check
+ERROR! the playbook: sample.yml could not be found
+koushikchanda@Koushiks-MBP book2 % ansible-playbook pbook2.yml --syntax-check
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+[WARNING]: Could not match supplied host pattern, ignoring: mysql_servers
+
+playbook: pbook2.yml
+koushikchanda@Koushiks-MBP book2 % ansible-playbook pbook2.yml --syntax-check
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+playbook: pbook2.yml
+koushikchanda@Koushiks-MBP book2 % ansible-playbook pbook2.yml
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [Install MySQL] ***************************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY RECAP *************************************************************************************************************************************************************************************************
+
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % ansible-playbook pbook2.yml
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+[WARNING]: Could not match supplied host pattern, ignoring: ubuntu@3.109.59.185
+
+PLAY [Install MySQL] ***************************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY RECAP *************************************************************************************************************************************************************************************************
+
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % ansible-playbook pbook2.yml
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+[WARNING]: Could not match supplied host pattern, ignoring: mysql_servers
+
+PLAY [Install MySQL] ***************************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY RECAP *************************************************************************************************************************************************************************************************
+
+koushikchanda@Koushiks-MBP book2 % ansible -m ping mysql_servers
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+[WARNING]: Could not match supplied host pattern, ignoring: mysql_servers
+koushikchanda@Koushiks-MBP book2 % ls
+inventory.ini	pbook2.yml
+koushikchanda@Koushiks-MBP book2 % cat inventory.ini 
+[mysql_servers]
+ubuntu@3.109.59.185
+#ubuntu@43.204.230.140%                                                                                                                                                                                     koushikchanda@Koushiks-MBP book2 % ansible -i inventory.ini -m ping all
+[WARNING]: Platform linux on host ubuntu@3.109.59.185 is using the discovered Python interpreter at /usr/bin/python3.12, but future installation of another Python interpreter could change the meaning of
+that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more information.
+ubuntu@3.109.59.185 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.12"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+koushikchanda@Koushiks-MBP book2 % ansible -i inventory.ini -m ping mysql_servers
+[WARNING]: Platform linux on host ubuntu@3.109.59.185 is using the discovered Python interpreter at /usr/bin/python3.12, but future installation of another Python interpreter could change the meaning of
+that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more information.
+ubuntu@3.109.59.185 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.12"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % ansible-playbook pbook2.yml --syntax-check
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+[WARNING]: Could not match supplied host pattern, ignoring: mysql_servers
+
+playbook: pbook2.yml
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % ansible-playbook pbook2.yml            
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+[WARNING]: Could not match supplied host pattern, ignoring: mysql_servers
+
+PLAY [Install MySQL] ***************************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY RECAP *************************************************************************************************************************************************************************************************
+
+koushikchanda@Koushiks-MBP book2 % ansible-playbook -i inventory.ini pbook2.yml
+
+PLAY [My first play] ***************************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************************************************************************************************
+[WARNING]: Platform linux on host ubuntu@3.109.59.185 is using the discovered Python interpreter at /usr/bin/python3.12, but future installation of another Python interpreter could change the meaning of
+that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more information.
+ok: [ubuntu@3.109.59.185]
+
+TASK [Ping my hosts] ***************************************************************************************************************************************************************************************
+ok: [ubuntu@3.109.59.185]
+
+TASK [Print message] ***************************************************************************************************************************************************************************************
+ok: [ubuntu@3.109.59.185] => {
+    "msg": "Hello world"
+}
+
+PLAY RECAP *************************************************************************************************************************************************************************************************
+ubuntu@3.109.59.185        : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % ansible-playbook -i inventory.ini pbook2.yml
+
+PLAY [Install MySQL] ***************************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************************************************************************************************
+[WARNING]: Platform linux on host ubuntu@3.109.59.185 is using the discovered Python interpreter at /usr/bin/python3.12, but future installation of another Python interpreter could change the meaning of
+that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more information.
+ok: [ubuntu@3.109.59.185]
+
+TASK [Update apt cache] ************************************************************************************************************************************************************************************
+changed: [ubuntu@3.109.59.185]
+
+TASK [Install MySQL server] ********************************************************************************************************************************************************************************
+changed: [ubuntu@3.109.59.185]
+
+PLAY RECAP *************************************************************************************************************************************************************************************************
+ubuntu@3.109.59.185        : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % ansible-playbook -i inventory.ini pbook2.yml
+
+PLAY [Install MySQL] ***************************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************************************************************************************************
+[WARNING]: Platform linux on host ubuntu@3.109.59.185 is using the discovered Python interpreter at /usr/bin/python3.12, but future installation of another Python interpreter could change the meaning of
+that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more information.
+ok: [ubuntu@3.109.59.185]
+
+TASK [Update apt cache] ************************************************************************************************************************************************************************************
+changed: [ubuntu@3.109.59.185]
+
+TASK [Install MySQL server] ********************************************************************************************************************************************************************************
+ok: [ubuntu@3.109.59.185]
+
+TASK [Start MySQL service] *********************************************************************************************************************************************************************************
+ok: [ubuntu@3.109.59.185]
+
+PLAY RECAP *************************************************************************************************************************************************************************************************
+ubuntu@3.109.59.185        : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % ansible -i inventory.ini -m ping mysql_servers
+ubuntu@43.204.230.140 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ubuntu@43.204.230.140: Permission denied (publickey).",
+    "unreachable": true
+}
+[WARNING]: Platform linux on host ubuntu@3.109.59.185 is using the discovered Python interpreter at /usr/bin/python3.12, but future installation of another Python interpreter could change the meaning of
+that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more information.
+ubuntu@3.109.59.185 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.12"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % 
+koushikchanda@Koushiks-MBP book2 % ansible-playbook -i inventory.ini pbook3.yml  
+
+PLAY [Install and verify NGINX] ****************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************************************************************************************************
+fatal: [ubuntu@43.204.230.140]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ubuntu@43.204.230.140: Permission denied (publickey).", "unreachable": true}
+[WARNING]: Platform linux on host ubuntu@3.109.59.185 is using the discovered Python interpreter at /usr/bin/python3.12, but future installation of another Python interpreter could change the meaning of
+that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more information.
+ok: [ubuntu@3.109.59.185]
+
+TASK [Update apt cache] ************************************************************************************************************************************************************************************
+changed: [ubuntu@3.109.59.185]
+
+TASK [Install NGINX] ***************************************************************************************************************************************************************************************
+changed: [ubuntu@3.109.59.185]
+
+TASK [Start and enable NGINX service] **********************************************************************************************************************************************************************
+ok: [ubuntu@3.109.59.185]
+
+TASK [Check NGINX is installed] ****************************************************************************************************************************************************************************
+changed: [ubuntu@3.109.59.185]
+
+TASK [Print NGINX version] *********************************************************************************************************************************************************************************
+ok: [ubuntu@3.109.59.185] => {
+    "msg": "NGINX is installed with version: nginx version: nginx/1.24.0 (Ubuntu)"
+}
+
+PLAY RECAP *************************************************************************************************************************************************************************************************
+ubuntu@3.109.59.185        : ok=6    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+ubuntu@43.204.230.140      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+
+koushikchanda@Koushiks-MBP book2 % 
